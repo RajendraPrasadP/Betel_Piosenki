@@ -4,17 +4,18 @@
 	background: url("../libs/jquerymobile/1.4.5/images/ajax-loader.gif") repeat scroll 0 0 / 46px 46px transparent!important;
 }
 /* mobilecontainer */
-.ui-content.Song9_mobilecontainer {
+.ui-content.song9_mobilecontainer {
 	padding: 15px 15px 15px 15px;
 }
-/* mobilelabel_2 */
-.Song9_mobilelabel_2 {
-	text-decoration: none; font-weight: normal; font-style: italic; text-align: left; font-family: Helvetica; font-size: 16px;
-	margin: 4px 0px 4px 0px;
-	word-wrap: break-word;
-	white-space: normal;
+/* html_5 */
+.song9_html_5 {
+	margin: 8px 5px 8px 5px;
+	font-weight: normal;
+}
+div.song9_html_5 {
+	overflow: auto;
 }
 /* mobilefooter */
-.Song9_mobilefooter {
+.song9_mobilefooter {
 	min-height:38px;
 }
