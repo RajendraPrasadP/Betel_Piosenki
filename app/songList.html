@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <title>
+            songList
+        </title>
+        <link rel="icon" href="../favicon.png?v=15747650">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, viewport-fit=cover">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- Enable all requests, inline styles, and eval() -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * gap://ready data:; style-src 'self' 'unsafe-inline' *; script-src 'self' 'unsafe-inline' 'unsafe-eval' *">
+        <!-- Uncomment link and meta tags below to activate PWA icons and theme color -->
+        <!-- link rel="manifest" href="../manifest.json" crossOrigin="use-credentials" -->
+        <!-- <link rel="apple-touch-icon" sizes="48x48" href="../img/betel_logo_48.png"><link rel="apple-touch-icon" sizes="72x72" href="../img/betel_logo_72.png"><link rel="apple-touch-icon" sizes="96x96" href="../img/betel_logo_96.png"><link rel="apple-touch-icon" sizes="144x144" href="../img/betel_logo_144.png"><link rel="apple-touch-icon" sizes="192x192" href="../img/betel_logo_192.png"><link rel="apple-touch-icon" sizes="512x512" href="../img/betel_logo.png">
+        -->
+        <!-- meta name="theme-color" content="#ffffff" -->
+        <link href="../css/theme/jqm/jqm.css" rel="stylesheet" />
+        <link href="../css/theme/flat-ui/flat-ui.css" rel="stylesheet" />
+        <link href="../libs/jquerymobile/1.4.5/jquery.mobile.structure-1.4.5.css" rel="stylesheet"
+        />
+        <!-- Uncomment this script to activate service worker -->
+        <!-- <script>
+        if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('../sw.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+        }
+        </script>
+        -->
+        <script type="text/javascript" src="../libs/underscore/underscore.js">
+        </script>
+        <script type="text/javascript" src="../libs/store/json2.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-2.1.1.js">
+        </script>
+        <script type="text/javascript" src="../libs/jquery/jquery-ajaxTransport.js">
+        </script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                if (navigator.userAgent.toLowerCase().indexOf("android") != -1) {
+                    $.mobile.defaultPageTransition = 'none';
+                    $.mobile.defaultDialogTransition = 'none';
+                } else if (navigator.userAgent.toLowerCase().indexOf("msie") != -1) {
+                    $.mobile.allowCrossDomainPages = true;
+                    $.support.cors = true;
+                } else if (navigator.userAgent.match(/(iPad|iPhone|iPod)/g)) {
+                    $.mobile.hashListeningEnabled = false;
+                }
+            });
+        </script>
+        <script type="text/javascript" src="../libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.js">
+        </script>
+        <script type="text/javascript" src="../libs/apperyio/mobilebase.js">
+        </script>
+        <script type="text/javascript" src="../libs/event/customEventHandler.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/sha1.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/oauth.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/contexts.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/jquery.xml2json.min.js">
+        </script>
+        <script type="text/javascript" src="../libs/ms_sdk_bundle/client-sdk.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/appery.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/component-manager.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/mapping-impl.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/entity-api.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/login.js">
+        </script>
+        <script type="text/javascript" src="../libs/base/storage-api.js">
+        </script>
+        <script type="text/javascript" src="../get_target_platform.js">
+        </script>
+        <script type="text/javascript" src="../cordova.js">
+        </script>
+        <link href="../libs/apperyio/mobilebase.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" src="../js/services/model.js">
+        </script>
+        <script type="text/javascript" src="../js/services/service.js">
+        </script>
+    </head>
+    
+    <body>
+        <script language="JavaScript" type="text/javascript">
+        </script>
+        <div data-role="page" style="min-height:480px;" dsid="songList" id="songList" class="type-interior"
+        data-theme="f">
+            <!-- mobileheader -->
+            <div data-role="header" data-position="fixed" data-add-back-btn="false" data-back-btn-text="Back"
+            data-theme="f" name="mobileheader" id="songList_mobileheader" class="songList_mobileheader">
+                <h1 dsid="mobileheader">
+                    Pieśni kultu Betel
+                </h1>
+            </div>
+            <!-- mobilecontainer -->
+            <div data-role="content" id="songList_mobilecontainer" name="mobilecontainer" class="songList_mobilecontainer ui-content"
+            dsid="mobilecontainer" data-theme="a">
+                <link href="songList.css" rel="stylesheet" type="text/css" />
+                <script type="text/javascript" src="songList.js">
+                </script>
+                <!-- songs -->
+                <ul data-role="listview" id="songList_songs" class="songList_songs" name="songs"
+                dsid="songs" data-inset="true" data-filter="true" data-filter-theme="f" data-filter-placeholder=" Numer lub nazwa"
+                data-theme="f" data-divider-theme="a" data-count-theme="b" style="" data-split-icon="carat-r">
+                    <!-- mobilelistitem_1 -->
+                    <li class="songList_mobilelistitem_1" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_1" name="mobilelistitem_1" dsid="mobilelistitem_1"
+                        tabindex="1" class="songList_mobilelistitem_1">
+                        <h3>1. Albowiem Tak Bóg Umiłował Świat</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_2 -->
+                    <li class="songList_mobilelistitem_2" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_2" name="mobilelistitem_2" dsid="mobilelistitem_2"
+                        tabindex="1" class="songList_mobilelistitem_2">
+                        <h3>2. Aż sponad mórz</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_3 -->
+                    <li class="songList_mobilelistitem_3" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_3" name="mobilelistitem_3" dsid="mobilelistitem_3"
+                        tabindex="1" class="songList_mobilelistitem_3">
+                        <h3>3. Bądź światłem mym</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_4 -->
+                    <li class="songList_mobilelistitem_4" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_4" name="mobilelistitem_4" dsid="mobilelistitem_4"
+                        tabindex="1" class="songList_mobilelistitem_4">
+                        <h3>4. Bliżej, O Bliżej Wznieś Mnie i Tul</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_5 -->
+                    <li class="songList_mobilelistitem_5" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_5" name="mobilelistitem_5" dsid="mobilelistitem_5"
+                        tabindex="1" class="songList_mobilelistitem_5">
+                        <h3>5. Błogosławię Cię</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_6 -->
+                    <li class="songList_mobilelistitem_6" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_6" name="mobilelistitem_6" dsid="mobilelistitem_6"
+                        tabindex="1" class="songList_mobilelistitem_6">
+                        <h3>6. Bóg Dał Mi Życie Nowe</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_7 -->
+                    <li class="songList_mobilelistitem_7" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_7" name="mobilelistitem_7" dsid="mobilelistitem_7"
+                        tabindex="1" class="songList_mobilelistitem_7">
+                        <h3>7. Boże Twa Łaska</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_8 -->
+                    <li class="songList_mobilelistitem_8" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_8" name="mobilelistitem_8" dsid="mobilelistitem_8"
+                        tabindex="1" class="songList_mobilelistitem_8">
+                        <h3>8. Był Taki Dzień w Mym Życiu</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_9 -->
+                    <li class="songList_mobilelistitem_9" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_9" name="mobilelistitem_9" dsid="mobilelistitem_9"
+                        tabindex="1" class="songList_mobilelistitem_9">
+                        <h3>9. Bóg Kocha Mnie</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_10 -->
+                    <li class="songList_mobilelistitem_10" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_10" name="mobilelistitem_10" dsid="mobilelistitem_10"
+                        tabindex="1" class="songList_mobilelistitem_10">
+                        <h3>10. Bóg Kocha Ciebie i Mnie</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_11 -->
+                    <li class="songList_mobilelistitem_11" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_11" name="mobilelistitem_11" dsid="mobilelistitem_11"
+                        tabindex="1" class="songList_mobilelistitem_11">
+                        <h3>11. Bóg Siłą i Tarczą Mą Jest</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_12 -->
+                    <li class="songList_mobilelistitem_12" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_12" name="mobilelistitem_12" dsid="mobilelistitem_12"
+                        tabindex="1" class="songList_mobilelistitem_12">
+                        <h3>12. Bóg Tak Umiłował Świat</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_13 -->
+                    <li class="songList_mobilelistitem_13" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_13" name="mobilelistitem_13" dsid="mobilelistitem_13"
+                        tabindex="1" class="songList_mobilelistitem_13">
+                        <h3>13. Chwalę Ciebie, Panie</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_14 -->
+                    <li class="songList_mobilelistitem_14" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_14" name="mobilelistitem_14" dsid="mobilelistitem_14"
+                        tabindex="1" class="songList_mobilelistitem_14">
+                        <h3>14. Cudowna Boża Łaska (Mych Więzów)</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_15 -->
+                    <li class="songList_mobilelistitem_15" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_15" name="mobilelistitem_15" dsid="mobilelistitem_15"
+                        tabindex="1" class="songList_mobilelistitem_15">
+                        <h3>15. Chwalcie Pana Niebios</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_16 -->
+                    <li class="songList_mobilelistitem_16" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_16" name="mobilelistitem_16" dsid="mobilelistitem_16"
+                        tabindex="1" class="songList_mobilelistitem_16">
+                        <h3>16. Chcę Wywyższać Imię Twe</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_17 -->
+                    <li class="songList_mobilelistitem_17" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_17" name="mobilelistitem_17" dsid="mobilelistitem_17"
+                        tabindex="1" class="songList_mobilelistitem_17">
+                        <h3>17. Chrystus Pan, Boży Syn </h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_43 -->
+                    <li class="songList_mobilelistitem_43" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_43" name="mobilelistitem_43" dsid="mobilelistitem_43"
+                        tabindex="1" class="songList_mobilelistitem_43">
+                        <h3>18. Cudowna Boża Łaska Ta</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_45 -->
+                    <li class="songList_mobilelistitem_45" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_45" name="mobilelistitem_45" dsid="mobilelistitem_45"
+                        tabindex="1" class="songList_mobilelistitem_45">
+                        <h3>19. Chrystus Jest Życiem Mym</h3>
+                        </a>
+                    </li>
+                    <!-- mobilelistitem_47 -->
+                    <li class="songList_mobilelistitem_47" data-icon="carat-r">
+                        <a id="songList_mobilelistitem_47" name="mobilelistitem_47" dsid="mobilelistitem_47"
+                        tabindex="1" class="songList_mobilelistitem_47">
+                        <h3>20. Chcę do Ciebie Podobnym Być</h3>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </body>
+
+</html>
