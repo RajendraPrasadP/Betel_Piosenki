@@ -1,0 +1,21 @@
+
+/* Define default spinner */
+.ui-icon-loading {
+	background: url("../libs/jquerymobile/1.4.5/images/ajax-loader.gif") repeat scroll 0 0 / 46px 46px transparent!important;
+}
+/* mobilecontainer */
+.ui-content.song85_mobilecontainer {
+	padding: 15px 15px 15px 15px;
+}
+/* html_5 */
+.song85_html_5 {
+	margin: 8px 5px 8px 5px;
+	font-weight: normal;
+}
+div.song85_html_5 {
+	overflow: auto;
+}
+/* mobilefooter */
+.song85_mobilefooter {
+	min-height:38px;
+}
