@@ -317,7 +317,7 @@ Apperyio.AppPages = [{
 }, {
     "name": "song55",
     "location": "song55.html"
-}{
+}, {
     "name": "song136",
     "location": "song136.html"
 }, {
